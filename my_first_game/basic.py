@@ -10,8 +10,11 @@ pygame.display.update()
 gameExit = False
 
 while not gameExit:
-    for even in pygame.event.get():
-        print(even)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            print(event)
+            gameExit = True
+        # print(event)
 
 pygame.quit()
 
