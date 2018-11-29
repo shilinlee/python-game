@@ -19,6 +19,12 @@ while not gameExit:
             gameExit = True
 
     gameDisplay.fill(white)
+
+    pygame.draw.rect(gameDisplay, black, [400, 300, 10, 100])
+    pygame.draw.rect(gameDisplay, red, [400, 300, 10, 10])
+
+    gameDisplay.fill(red, rect=[200, 200, 50, 50])
+
     pygame.display.update()
 
 
