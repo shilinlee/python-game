@@ -39,6 +39,9 @@ while not gameExit:
                 lead_x_change = 0
                 lead_y_change = 10
 
+    if lead_x >= 800 or lead_x < 0 or lead_y >= 600 or lead_y < 0:
+        gameExit = True
+
     lead_x += lead_x_change
     lead_y += lead_y_change
     gameDisplay.fill(white)
