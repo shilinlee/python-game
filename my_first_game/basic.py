@@ -1,10 +1,12 @@
 import pygame
 import time
+import random
 
 pygame.init()
 
 white = (255, 255, 255)
 black = (0, 0, 0)
+
 red = (255, 0, 0)
 
 display_width = 800
@@ -41,6 +43,9 @@ def gameLoop():
 
     lead_x_change = 0
     lead_y_change = 0
+    
+    randAppleX = random.randrange(0, display_width-block_size)
+    randAppleY = random.randrange(0, display_height-block_size)
 
     while not gameExit:
         if gameOver is True:
@@ -50,7 +55,6 @@ def gameLoop():
 
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
-                    print(event)
                     if event.key == pygame.K_q:
                         gameExit = True
                         gameOver = False
@@ -81,13 +85,13 @@ def gameLoop():
         lead_x += lead_x_change
         lead_y += lead_y_change
         gameDisplay.fill(white)
+        pygame.draw.rect(gameDisplay, red, [randAppleX, randAppleY, block_size, block_size])
         pygame.draw.rect(gameDisplay, black, [lead_x, lead_y, block_size, block_size])
         pygame.display.update()
 
         clock.tick(FPS)
 
     pygame.quit()
-
     quit()
 
 
