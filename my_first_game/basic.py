@@ -1,4 +1,5 @@
 import pygame
+import time
 
 pygame.init()
 
@@ -25,6 +26,14 @@ clock = pygame.time.Clock()
 
 block_size = 10
 FPS = 30
+
+font = pygame.font.SysFont(None, 25)
+
+
+def message_to_screen(msg, color):
+    screen_text = font.render(msg, True, color)
+    gameDisplay.blit(screen_text, [display_width/2, display_height/2])
+
 
 while not gameExit:
     for event in pygame.event.get():
@@ -56,7 +65,10 @@ while not gameExit:
 
     clock.tick(FPS)
 
+message_to_screen("You Lose", red)
+pygame.display.update()
 
+time.sleep(2)
 pygame.quit()
 
 quit()
