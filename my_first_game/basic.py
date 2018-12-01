@@ -17,10 +17,6 @@ gameDisplay = pygame.display.set_mode((display_width, display_height))
 pygame.display.set_caption("Slither")
 
 
-
-
-
-
 clock = pygame.time.Clock()
 
 block_size = 10
@@ -44,8 +40,8 @@ def gameLoop():
     lead_x_change = 0
     lead_y_change = 0
     
-    randAppleX = random.randrange(0, display_width-block_size)
-    randAppleY = random.randrange(0, display_height-block_size)
+    randAppleX = round(random.randrange(0, display_width-block_size)/10.0) * 10
+    randAppleY = round(random.randrange(0, display_height-block_size)/10.0) * 10
 
     while not gameExit:
         if gameOver is True:
@@ -88,6 +84,9 @@ def gameLoop():
         pygame.draw.rect(gameDisplay, red, [randAppleX, randAppleY, block_size, block_size])
         pygame.draw.rect(gameDisplay, black, [lead_x, lead_y, block_size, block_size])
         pygame.display.update()
+
+        if lead_x == randAppleX and lead_y == randAppleY:
+            print("om nom nom")
 
         clock.tick(FPS)
 
