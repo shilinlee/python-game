@@ -27,7 +27,7 @@ font = pygame.font.SysFont(None, 25)
 
 def snake(block_size, snakelist):
     for XnY in snakelist:
-        pygame.draw.rect(gameDisplay, green, [XnY[0], Xny[1], block_size, block_size])
+        pygame.draw.rect(gameDisplay, green, [XnY[0], XnY[1], block_size, block_size])
     
 
 
@@ -89,13 +89,13 @@ def gameLoop():
         gameDisplay.fill(white)
         pygame.draw.rect(gameDisplay, red, [randAppleX, randAppleY, block_size, block_size])
        
-       snakeList = []
-       snakeHead = []
-       snakeHead.append(lead_x)]
-       snakeHead.append(lead_y)
-       snakeList.append(snakeHead)
+        snakeList = []
+        snakeHead = []
+        snakeHead.append(lead_x)
+        snakeHead.append(lead_y)
+        snakeList.append(snakeHead)
        
-       snake(block_size, snakelist)
+        snake(block_size, snakeList)
         pygame.display.update()
 
         if lead_x == randAppleX and lead_y == randAppleY:
