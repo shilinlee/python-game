@@ -1,3 +1,3 @@
-#### my py game list:
+#### my python game list:
 
-1. test
+1.snake
